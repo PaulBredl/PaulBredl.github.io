@@ -88,7 +88,7 @@ function calculateRequest() {
 
         // parse dices
         const diceStrings = request.split("vs");
-        require(diceStrings.length > 10, "The maximum amount of dices to compare is 10");
+        require(diceStrings.length <= 10, "The maximum amount of dices to compare is 10");
         const dices = diceStrings.map(diceStr => Dice.parse(diceStr));
 
         // calculate results

@@ -16,8 +16,8 @@ class Dice {
 
         require(this.count > 0, "Dice count must be positive");
         require(this.sides >= 2, "Number of sides of a dice must be at least 2");
-        require(this.count <= 128, "Dice count may not exceed 128");
-        require(this.sides <= 1000, "Number of sides may not exceed 1000");
+        require(this.count <= 16, "Dice count may not exceed 32");
+        require(this.sides <= 100, "Number of sides may not exceed 100");
     }
 
     /**
@@ -263,7 +263,8 @@ class DiceCalculator {
             // the dice "wins" against the other if for each i the other dice is lower
             return this.probabilityForResultEqualTo(i) *
                 otherCalculator.probabilityForResultLessThan(i);
-        }, {startIndex: Math.min(this.dice.modifier, otherDice.modifier)});
+        }, {startIndex: Math.min(this.dice.modifier, otherDice.modifier),
+            minIterations: this.dice.sides * this.dice.count});
     }
 
     getProbabilityEqualCache() {

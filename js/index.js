@@ -34,7 +34,7 @@ function createProbabilityRows(results) {
     let result = "";
     for (let i = 4; i < 25; i += 4) {
         result += createBasicRow(`P(X >= ${i})`, results,
-                result => formatPercentage(result.pGreaterThan[i]));
+            result => formatPercentage(result.pGreaterThan[i]));
     }
     return result;
 }
@@ -63,16 +63,16 @@ function generateResultTable(results) {
     return `
                 ${createTitleRow(results)}
                 <tbody>
-                    ${createBasicRow("Expected value", results, 
-            result => formatDouble(result.expectedValue))}
+                    ${createBasicRow("Expected value", results,
+        result => formatDouble(result.expectedValue))}
                     ${createBasicRow("Median", results,
         result => formatDouble(result.median))}
-                    ${createBasicRow("Variance", results, 
+                    ${createBasicRow("Variance", results,
         result => formatDouble(result.variance))}
                     ${createBasicRow("Standard deviation", results,
-                       result => formatDouble(result.standardDeviation))}
-                    ${createBasicRow("P(X < 4)", results, 
-            result => formatPercentage(result.pFail))}
+        result => formatDouble(result.standardDeviation))}
+                    ${createBasicRow("P(X < 4)", results,
+        result => formatPercentage(result.pFail))}
                     ${createProbabilityRows(results)}
                     ${createWinProbabilityTitleRow(results)}
                     ${createWinProbabilityRows(results)}
